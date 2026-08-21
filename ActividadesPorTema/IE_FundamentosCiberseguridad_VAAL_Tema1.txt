@@ -1,0 +1,82 @@
+###--
+'''
+Nombre: Demostración Tipos de amenazas y Riesgos
+Descripción: Realizar un video o presentacion en vivo de una amenaza o Riesgo de seguridad de ciberseguridad por equipos. Haciendo incapie en lo facil se puede ser victima de una de ellas 
+Notas: 
+= Si la amenza es de software idealmente traer un ejemplo y presentar. 
+= Si es una vulnerabilidad de escala como un DDOS, entonces colocar un video. 
+= Si es por hardware intentar traer o armar el hardware.
+Elementos Clave: Espinaje, Injeccion de codigo, Robo industrial, DDOS.
+SEAES_CACEI: AE2, CD2-2, Compromiso con responsabilidad Social
+'''
+##R001##
+##20##
+"""
+Reactivo: Calidad y organización del tema.
+Restricciones: NA.
+"""
+##R002##
+##20##
+"""
+Reactivo: Cuidado del detalle de la demostración.
+Restricciones: NA.
+"""
+###--
+'''
+Nombre: Podcast ataques famosos
+Descripción: Realizar un podcast donde platiquen sobre un ataque famoso de ciberseguridad.
+Notas: 
+= Es un podcast los estudiantes deben rebotar ideas entre ellos no leer cada quien una parte.
+= Deben entregar el enlace del archivo y la transcripción con marcas de tiempo.
+= En la transcripcion deben colocar las fuentes en formato APA que utilizaron.
+
+Elementos Clave: NA.
+SEAES_CACEI: Compromiso con responsabilidad Social, Vanguadia.
+'''
+##R003##
+##10##
+"""
+Reactivo: Manejo del tema e interaccion entre los participantes.
+Restricciones: NA
+"""
+##R004##
+##10##
+"""
+Reactivo: Calidad de Audio y producción.
+Restricciones: NA
+"""
+##R005##
+##10##
+"""
+Reactivo: Fuentes de información
+Restricciones: NA
+"""
+###--
+'''
+Nombre: Video Estandares de seguridad
+Descripción: Realizar una video donde expongan y definan los principales estandares de seguridad
+Notas: 
+= Es un video corto de nos mas 10 minutos por equipo.
+= Deben entregar el enlace del archivo y la transcripción con marcas de tiempo.
+= En la transcripcion deben colocar las fuentes en formato APA que utilizaron.
+Elementos Clave: NA.
+SEAES_CACEI: CD2-2, AE2, CD7-2, AE7, Vanguadia.
+'''
+##R006##
+##15##
+"""
+Reactivo: Manejo de la información y estructura.
+Restricciones: NA.
+"""
+##R007##
+##5##
+"""
+Reactivo: Formato y producción
+Restricciones: NA. 
+"""
+##R008##
+##10##
+"""
+Reactivo: Fuentes de información
+Restricciones: NA. 
+"""

@@ -1,0 +1,44 @@
+- Actividad: "Nombre: Analisis Forence de una imagen de seguridad.\nDescripción: Producir
+    una serie de videos sobre el analisis de una imagen forence y obtener archivos
+    de la misma.\nNotas: \n= Se propone usar herramientas opensource para la manipulacion
+    de la imagen\n= Video o audios solo requieren un archivo de Texto con el enlace\n\
+    = \"Un Video que documente el proceso\" no es necesariamente un tutorial o guia,
+    es más bien el como realizaron una actividad, incluyendo sus errores, pensamientos
+    e  ideas. Es más como un registro lofi\nElementos Clave: TestDisk, photorec, dd,
+    binwalk.\nSEAES_CACEI: AE2, CD2-2, Compromiso con responsabilidad Social"
+  Reactivos:
+  - ID: R001
+    Ponderacion: 20
+    Reactivo: "Reactivo: Elaborar un Video que documente el proceso, del aseguramiento
+      de un dispositivo.\nRestricciones: NA."
+  - ID: R002
+    Ponderacion: 20
+    Reactivo: "Reactivo: Elaborar un video que documente el proceso de Extracción
+      de información oculta.\nRestricciones: NA."
+- Actividad: "Nombre: Herramientas de hashes\nDescripción: Producir un Video Tutorial
+    o guia de uso de una herramienta para comprobar la contraseña de un usuario en
+    un diccionario.\nNotas: \n= Los hash seran proporcionados por el docente.\n= Este
+    proceso puede que requiera un espacio de almacenamiento amplio al menos uno 10
+    gib.\n= Este proceso puede que requiera un tiempo prolongado de uso del CPU.\n\
+    Elementos Clave: hashcat, john the ripper, WORDLIST.\nSEAES_CACEI: Compromiso
+    con responsabilidad Social, Vanguadia."
+  Reactivos:
+  - ID: R003
+    Ponderacion: 30
+    Reactivo: "Reactivo: Contenido del Video Tutorial.\nRestricciones: NA"
+  - ID: R004
+    Ponderacion: 10
+    Reactivo: "Reactivo: Calidad de Audio y producción.\nRestricciones: NA"
+- Actividad: "Nombre: Podcast Hacking ético\nDescripción: Realizar un podcast donde
+    platiquen sobre las principales herramientas de hacking ético.\nNotas: \n= Es
+    un podcast los estudiantes deben rebotar ideas entre ellos no leer cada quien
+    una parte.\n= Video o audios solo requieren un archivo de Texto con el enlace\n\
+    Elementos Clave: NA.\nSEAES_CACEI: Compromiso con responsabilidad Social, Vanguadia."
+  Reactivos:
+  - ID: R005
+    Ponderacion: 10
+    Reactivo: "Reactivo: Manejo del tema e interaccion entre los participantes.\n\
+      Restricciones: NA"
+  - ID: R006
+    Ponderacion: 10
+    Reactivo: "Reactivo: Calidad de Audio y producción.\nRestricciones: NA"

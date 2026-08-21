@@ -1,0 +1,68 @@
+###--
+'''
+Nombre: Analisis Forence de una imagen de seguridad.
+Descripción: Producir una serie de videos sobre el analisis de una imagen forence y obtener archivos de la misma.
+Notas: 
+= Se propone usar herramientas opensource para la manipulacion de la imagen
+= Video o audios solo requieren un archivo de Texto con el enlace
+= "Un Video que documente el proceso" no es necesariamente un tutorial o guia, es más bien el como realizaron una actividad, incluyendo sus errores, pensamientos e  ideas. Es más como un registro lofi
+Elementos Clave: TestDisk, photorec, dd, binwalk.
+SEAES_CACEI: AE2, CD2-2, Compromiso con responsabilidad Social
+'''
+##R001##
+##20##
+"""
+Reactivo: Elaborar un Video que documente el proceso, del aseguramiento de un dispositivo.
+Restricciones: NA.
+"""
+##R002##
+##20##
+"""
+Reactivo: Elaborar un video que documente el proceso de Extracción de información oculta.
+Restricciones: NA.
+"""
+###--
+'''
+Nombre: Herramientas de hashes
+Descripción: Producir un Video Tutorial o guia de uso de una herramienta para comprobar la contraseña de un usuario en un diccionario.
+Notas: 
+= Los hash seran proporcionados por el docente.
+= Este proceso puede que requiera un espacio de almacenamiento amplio al menos uno 10 gib.
+= Este proceso puede que requiera un tiempo prolongado de uso del CPU.
+Elementos Clave: hashcat, john the ripper, WORDLIST.
+SEAES_CACEI: Compromiso con responsabilidad Social, Vanguadia.
+'''
+##R003##
+##30##
+"""
+Reactivo: Contenido del Video Tutorial.
+Restricciones: NA
+"""
+##R004##
+##10##
+"""
+Reactivo: Calidad de Audio y producción.
+Restricciones: NA
+"""
+###--
+'''
+Nombre: Podcast Hacking ético
+Descripción: Realizar un podcast donde platiquen sobre las principales herramientas de hacking ético.
+Notas: 
+= Es un podcast los estudiantes deben rebotar ideas entre ellos no leer cada quien una parte.
+= Video o audios solo requieren un archivo de Texto con el enlace
+Elementos Clave: NA.
+SEAES_CACEI: Compromiso con responsabilidad Social, Vanguadia.
+'''
+##R005##
+##10##
+"""
+Reactivo: Manejo del tema e interaccion entre los participantes.
+Restricciones: NA
+"""
+##R006##
+##10##
+"""
+Reactivo: Calidad de Audio y producción.
+Restricciones: NA
+"""

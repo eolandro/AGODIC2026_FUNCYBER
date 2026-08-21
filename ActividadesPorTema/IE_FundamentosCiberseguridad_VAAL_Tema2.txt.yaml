@@ -1,0 +1,58 @@
+- Actividad: "Nombre: Cifrado, Firma y Certificado.\nDescripción:  Implementar Mecanismos
+    de Confidencialidad e Integridad.  Generacion de pares de llaves, cifrar archivos,
+    firmar archivos y administrar certificados de seguridad.\nNotas: \n= Deben usar
+    GNUPG con kleopatra\n= Deben usar Openssl desde la linea de comandos\n= Los archivos
+    de Texto va en formato PDF\n= Video o audios solo requieren un archivo de Texto
+    con el enlace\nElementos Clave: GnuPG, kleopatra, Openssl, Libreoffice, SAT, CFDI.\n\
+    SEAES_CACEI: AE2, CD2-2, Compromiso con responsabilidad Social"
+  Reactivos:
+  - ID: R001
+    Ponderacion: 20
+    Reactivo: "Reactivo: GNUPG. Guia Escrita o Video Tutorial. \n = Generación de
+      Par de Llaves\n = Certificado de Revocación\n = Exportación e Intercambio de
+      Llaves\n = Cifrado y firma de archivos\n = Descifrado y Verificación\n \nRestricciones:\n\
+      \ = La duracion del video tutorial depende de cuantos equipos declaren \n  \
+      \ que realizaran video tutorial en el grupo:\n   == 15 minutos si hay menos
+      5 equipos\n   == 10 minutos si hay menos 8 equipos"
+  - ID: R002
+    Ponderacion: 20
+    Reactivo: "Reactivo: OpenSSL. Guia Escrita o Video Tutorial. \n = Generación de
+      Par de Llaves.\n = Generación de Hash de un archivo.\n = Creación de una Solicitud
+      de Firma de Certificado (CSR)\n = Firmar archivos con OpenSSL\n = Exportación
+      e Intercambio de Llaves y Verificacion\nRestricciones: \n = La duracion del
+      video tutorial depende de cuantos equipos declaren \n   que realizaran video
+      tutorial en el grupo:\n   == 15 minutos si hay menos 5 equipos\n   == 10 minutos
+      si hay menos 8 equipos"
+- Actividad: "Nombre: Local CA\nDescripción: Realizar entidad certificadora local,
+    que permita a un red lan certificar el acceso a servicios web locales.\nNotas:\
+    \ \n = Montar un servidor DNS y configurarlo en la red local\n = Una maquina debe
+    funcionar como CA\n = Otros equipos deben tener páginas web en un servidor HTTP\n\
+    \ = Los servidores HTTP deben usar el certificado del CA\n = La navegacion en
+    los sitios locales deben indicar que estan seguros\nElementos Clave: Mkcert, DNS.\n\
+    SEAES_CACEI: CD2-2, AE2, CD7-2, AE7, Vanguadia."
+  Reactivos:
+  - ID: R003
+    Ponderacion: 15
+    Reactivo: "Reactivo: Implementar una red local.\n = Realizar un Diseño simple
+      de la Topologia. En Papel o Digital\n = Configura la resolución de DNS para
+      la red local\n = Instala servidores HTTP distintos para cada maquina que no
+      es el CA y coloca un \"hola mundo\" en html.\nRestricciones: NA"
+  - ID: R004
+    Ponderacion: 20
+    Reactivo: "Reactivo: Configurar el CA\n = Generar las llaves y el certificado
+      Raiz en la máquina CA con mkcert.\n = Importa el certificado Raiz en los equipos\n\
+      \ = Genera los certificados para los servidores web, con mkcert usando el certificado
+      Raiz.\n = Configura los servidores web y verifica que la conexion es segura..\
+      \ \nRestricciones: NA"
+- Actividad: "Nombre: MFA/ToTP\nDescripción: Completar y/o adaptar un programa donde
+    se use autenticacion multifactor\nNotas: Python es lenguaje ideal, sugiere el
+    uso de aplicaciones de tipo Autenticador para el movil.\nElementos Clave: MFA,
+    ToTP, Salt, Injection.\nSEAES_CACEI: CD7-2, AE7, Vanguadia."
+  Reactivos:
+  - ID: R005
+    Ponderacion: 25
+    Reactivo: "Reactivo: Video Tutorial.\n = Alta de usuario.\n = Generacion de QR
+      ToTP y  Configuracion de una aplicación\n = Acceso a una Aplicacion con dos
+      etapas:\n   = Usuario y Contraseña\n   = Codigo ToTP\n = Explicacion del Codigo
+      Fuente\nRestricciones: \n= La duracion del video tutorial no debe superar 5
+      minutos."

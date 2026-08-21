@@ -1,0 +1,96 @@
+###--
+'''
+Nombre: Cifrado, Firma y Certificado.
+Descripción:  Implementar Mecanismos de Confidencialidad e Integridad.  Generacion de pares de llaves, cifrar archivos, firmar archivos y administrar certificados de seguridad.
+Notas: 
+= Deben usar GNUPG con kleopatra
+= Deben usar Openssl desde la linea de comandos
+= Los archivos de Texto va en formato PDF
+= Video o audios solo requieren un archivo de Texto con el enlace
+Elementos Clave: GnuPG, kleopatra, Openssl, Libreoffice, SAT, CFDI.
+SEAES_CACEI: AE2, CD2-2, Compromiso con responsabilidad Social
+'''
+##R001##
+##20##
+"""
+Reactivo: GNUPG. Guia Escrita o Video Tutorial. 
+ = Generación de Par de Llaves
+ = Certificado de Revocación
+ = Exportación e Intercambio de Llaves
+ = Cifrado y firma de archivos
+ = Descifrado y Verificación
+ 
+Restricciones:
+ = La duracion del video tutorial depende de cuantos equipos declaren 
+   que realizaran video tutorial en el grupo:
+   == 15 minutos si hay menos 5 equipos
+   == 10 minutos si hay menos 8 equipos
+"""
+##R002##
+##20##
+"""
+Reactivo: OpenSSL. Guia Escrita o Video Tutorial. 
+ = Generación de Par de Llaves.
+ = Generación de Hash de un archivo.
+ = Creación de una Solicitud de Firma de Certificado (CSR)
+ = Firmar archivos con OpenSSL
+ = Exportación e Intercambio de Llaves y Verificacion
+Restricciones: 
+ = La duracion del video tutorial depende de cuantos equipos declaren 
+   que realizaran video tutorial en el grupo:
+   == 15 minutos si hay menos 5 equipos
+   == 10 minutos si hay menos 8 equipos
+"""
+###--
+'''
+Nombre: Local CA
+Descripción: Realizar entidad certificadora local, que permita a un red lan certificar el acceso a servicios web locales.
+Notas: 
+ = Montar un servidor DNS y configurarlo en la red local
+ = Una maquina debe funcionar como CA
+ = Otros equipos deben tener páginas web en un servidor HTTP
+ = Los servidores HTTP deben usar el certificado del CA
+ = La navegacion en los sitios locales deben indicar que estan seguros
+Elementos Clave: Mkcert, DNS.
+SEAES_CACEI: CD2-2, AE2, CD7-2, AE7, Vanguadia.
+'''
+##R003##
+##15##
+"""
+Reactivo: Implementar una red local.
+ = Realizar un Diseño simple de la Topologia. En Papel o Digital
+ = Configura la resolución de DNS para la red local
+ = Instala servidores HTTP distintos para cada maquina que no es el CA y coloca un "hola mundo" en html.
+Restricciones: NA
+"""
+##R004##
+##20##
+"""
+Reactivo: Configurar el CA
+ = Generar las llaves y el certificado Raiz en la máquina CA con mkcert.
+ = Importa el certificado Raiz en los equipos
+ = Genera los certificados para los servidores web, con mkcert usando el certificado Raiz.
+ = Configura los servidores web y verifica que la conexion es segura.. 
+Restricciones: NA
+"""
+###--
+'''
+Nombre: MFA/ToTP
+Descripción: Completar y/o adaptar un programa donde se use autenticacion multifactor
+Notas: Python es lenguaje ideal, sugiere el uso de aplicaciones de tipo Autenticador para el movil.
+Elementos Clave: MFA, ToTP, Salt, Injection.
+SEAES_CACEI: CD7-2, AE7, Vanguadia.
+'''
+##R005##
+##25##
+"""
+Reactivo: Video Tutorial.
+ = Alta de usuario.
+ = Generacion de QR ToTP y  Configuracion de una aplicación
+ = Acceso a una Aplicacion con dos etapas:
+   = Usuario y Contraseña
+   = Codigo ToTP
+ = Explicacion del Codigo Fuente
+Restricciones: 
+= La duracion del video tutorial no debe superar 5 minutos.
+"""

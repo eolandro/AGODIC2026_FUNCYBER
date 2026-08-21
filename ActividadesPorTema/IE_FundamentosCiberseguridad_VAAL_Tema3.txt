@@ -1,0 +1,47 @@
+###--
+'''
+Nombre: Desarrollo de un Dispositivo de Iot Simple
+Descripción: Desarrollar un Dispositivo de Iot que utilice algun sensor y guarde el historico en una base de datos en un servidor en la nube
+Notas: 
+= Se propone usar un servidor con linux o un PaaS para la base de datos.
+= Video o audios solo requieren un archivo de Texto con el enlace
+= Se necesita crear un cuenta de paypal, se puede trabajar en vultr o digitalocean
+Elementos Clave: Arduino, PlatformIO, MicroPython, ADC, Webapi.
+SEAES_CACEI: AE2, CD2-2, AE7, CD7-2, Vanguardia
+'''
+##R001##
+##10##
+"""
+Reactivo: Instalación y/o configuración de Arduino, PlatformIO o MicroPython.
+Restricciones: NA.
+"""
+##R002##
+##10##
+"""
+Reactivo: Armado del Circuito y Programación del Dispositivo.
+Restricciones: NA.
+"""
+##R003##
+##10##
+"""
+Reactivo: Desarrollo de la webapi o cliente de MQTT
+Restricciones: NA
+"""
+##R004##
+##10##
+"""
+Reactivo: Instalación del Servidor en la nube o carga del contenedor con la base de datos
+Restricciones: NA.
+"""
+##R005##
+##10##
+"""
+Reactivo: Despligue del backend.
+Restricciones: NA.
+"""
+##R006##
+##50##
+"""
+Reactivo: Video donde se muestre todo el proceso conectar el disposito hasta como inserta información en el servidor y la generacion de un reporte.
+Restricciones: NA.
+"""

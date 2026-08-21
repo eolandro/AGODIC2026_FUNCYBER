@@ -1,0 +1,48 @@
+- Actividad: "Nombre: Demostración Tipos de amenazas y Riesgos\nDescripción: Realizar
+    un video o presentacion en vivo de una amenaza o Riesgo de seguridad de ciberseguridad
+    por equipos. Haciendo incapie en lo facil se puede ser victima de una de ellas\
+    \ \nNotas: \n= Si la amenza es de software idealmente traer un ejemplo y presentar.\
+    \ \n= Si es una vulnerabilidad de escala como un DDOS, entonces colocar un video.\
+    \ \n= Si es por hardware intentar traer o armar el hardware.\nElementos Clave:
+    Espinaje, Injeccion de codigo, Robo industrial, DDOS.\nSEAES_CACEI: AE2, CD2-2,
+    Compromiso con responsabilidad Social"
+  Reactivos:
+  - ID: R001
+    Ponderacion: 20
+    Reactivo: "Reactivo: Calidad y organización del tema.\nRestricciones: NA."
+  - ID: R002
+    Ponderacion: 20
+    Reactivo: "Reactivo: Cuidado del detalle de la demostración.\nRestricciones: NA."
+- Actividad: "Nombre: Podcast ataques famosos\nDescripción: Realizar un podcast donde
+    platiquen sobre un ataque famoso de ciberseguridad.\nNotas: \n= Es un podcast
+    los estudiantes deben rebotar ideas entre ellos no leer cada quien una parte.\n\
+    = Deben entregar el enlace del archivo y la transcripción con marcas de tiempo.\n\
+    = En la transcripcion deben colocar las fuentes en formato APA que utilizaron.\n\
+    \nElementos Clave: NA.\nSEAES_CACEI: Compromiso con responsabilidad Social, Vanguadia."
+  Reactivos:
+  - ID: R003
+    Ponderacion: 10
+    Reactivo: "Reactivo: Manejo del tema e interaccion entre los participantes.\n\
+      Restricciones: NA"
+  - ID: R004
+    Ponderacion: 10
+    Reactivo: "Reactivo: Calidad de Audio y producción.\nRestricciones: NA"
+  - ID: R005
+    Ponderacion: 10
+    Reactivo: "Reactivo: Fuentes de información\nRestricciones: NA"
+- Actividad: "Nombre: Video Estandares de seguridad\nDescripción: Realizar una video
+    donde expongan y definan los principales estandares de seguridad\nNotas: \n= Es
+    un video corto de nos mas 10 minutos por equipo.\n= Deben entregar el enlace del
+    archivo y la transcripción con marcas de tiempo.\n= En la transcripcion deben
+    colocar las fuentes en formato APA que utilizaron.\nElementos Clave: NA.\nSEAES_CACEI:
+    CD2-2, AE2, CD7-2, AE7, Vanguadia."
+  Reactivos:
+  - ID: R006
+    Ponderacion: 15
+    Reactivo: "Reactivo: Manejo de la información y estructura.\nRestricciones: NA."
+  - ID: R007
+    Ponderacion: 5
+    Reactivo: "Reactivo: Formato y producción\nRestricciones: NA."
+  - ID: R008
+    Ponderacion: 10
+    Reactivo: "Reactivo: Fuentes de información\nRestricciones: NA."

@@ -1,0 +1,32 @@
+- Actividad: "Nombre: Desarrollo de un Dispositivo de Iot Simple\nDescripción: Desarrollar
+    un Dispositivo de Iot que utilice algun sensor y guarde el historico en una base
+    de datos en un servidor en la nube\nNotas: \n= Se propone usar un servidor con
+    linux o un PaaS para la base de datos.\n= Video o audios solo requieren un archivo
+    de Texto con el enlace\n= Se necesita crear un cuenta de paypal, se puede trabajar
+    en vultr o digitalocean\nElementos Clave: Arduino, PlatformIO, MicroPython, ADC,
+    Webapi.\nSEAES_CACEI: AE2, CD2-2, AE7, CD7-2, Vanguardia"
+  Reactivos:
+  - ID: R001
+    Ponderacion: 10
+    Reactivo: "Reactivo: Instalación y/o configuración de Arduino, PlatformIO o MicroPython.\n\
+      Restricciones: NA."
+  - ID: R002
+    Ponderacion: 10
+    Reactivo: "Reactivo: Armado del Circuito y Programación del Dispositivo.\nRestricciones:
+      NA."
+  - ID: R003
+    Ponderacion: 10
+    Reactivo: "Reactivo: Desarrollo de la webapi o cliente de MQTT\nRestricciones:
+      NA"
+  - ID: R004
+    Ponderacion: 10
+    Reactivo: "Reactivo: Instalación del Servidor en la nube o carga del contenedor
+      con la base de datos\nRestricciones: NA."
+  - ID: R005
+    Ponderacion: 10
+    Reactivo: "Reactivo: Despligue del backend.\nRestricciones: NA."
+  - ID: R006
+    Ponderacion: 50
+    Reactivo: "Reactivo: Video donde se muestre todo el proceso conectar el disposito
+      hasta como inserta información en el servidor y la generacion de un reporte.\n\
+      Restricciones: NA."
