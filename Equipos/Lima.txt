@@ -1,9 +1,0 @@
-#Informacion del Equipo
----
-Equipo:
-  - NoControl: "23590272"
-    Nombre: Jose Miguel Nieto Ramirez
-  - NoControl: "23590567"
-    Nombre: Acosta Garcia Jose Luis
-  - NoControl: "23590286"
-    Nombre: Rodriguez Galicia Erick Salvador
