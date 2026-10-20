@@ -1,0 +1,14 @@
+[[zones]]
+host = 'naranja'
+type = 'A'
+answer = '10.110.59.194'
+
+[[zones]]
+host = 'naranja1'
+type = 'A'
+answer = '10.110.59.1'
+
+[[zones]]
+host = 'naranja2'
+type = 'A'
+answer = '10.110.59.109'
