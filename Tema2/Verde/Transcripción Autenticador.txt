@@ -1,0 +1,146 @@
+Capítulo 1: Explicación de registrarusuario.py
+0:00 - Voy a explicar un poco sobre cómo funciona nuestro código de autenticador.
+
+0:03 - Este programa tiene como objetivo poder dar de alta nuevos usuarios en nuestra base de datos, permitiéndonos agregar el nombre, agregar la contraseña y generar la semilla para nuestra autentificador.
+
+0:14 - Este y posterior a generar esta semilla generará un código QR para poder configurar la autentificación e de dos factores en utilizando una aplicación en este caso como Aegis.
+
+0:26 - Este, hicimos las importaciones necesarias, este, el SQL L 3 para poder guardar los datos en la base de datos local, el BCP para poder tejer la contraseña con un hash. El P O TP generando una semilla y la URI para TOTP, TOOTP, el QR para QR code para poder dibujar el QR en la consola y el ARG Parse y el PATLP para poder recibir la ruta de la base de datos como un argumento.
+
+0:49 - Get Pass y el Get Pass para poder pedir la contraseña sin mostrarla en pantalla.
+
+0:55 - Bien, nuestro nuestro apartado principal viene siendo este, es donde vamos a mandar llamar todos los métodos que definimos antes.
+
+1:02 - Eh, aquí el programa recibe la ruta base desde los datos de la línea de de la consola y verifica primero primero verifica que nuestra archivo de base de datos exista y si existe.
+
+1:19 - Y si existe, nos mandará un mensaje de que se encontró la base de datos y luego nos podrá mandar a llamar nuestro método de registrar usuario.
+
+1:26 - En caso de que no encuentre la base de datos, este nos va a mostrar un mensaje de que no se encontró la base de datos y se va a cerrar el programa, se va a finalizar.
+
+1:34 - Posterior a esto tenemos nuestra función de registrar usuario. En esta tomamos, este es el corazón de la el corazón de nuestra aplicación.
+
+1:42 - eh se encarga primero de capturar los datos del empleado. Bueno, crea primero la conexión con ese con SQL Lite para con la base de datos.
+
+1:49 - Luego podemos crear los va solicitando los datos del empleado, que viene siendo el número de empleado, el nombre y la contraseña.
+
+1:58 - Eh, de aquí en adelante nos vamos a encargar de hashear nuestra contraseña. Este, la vamos a codificar con UTF8.
+
+2:07 - Generemos un salto y luego empezaremos a generar el hash con el BCPT. y hacer un decode para que lo pase a texto.
+
+2:15 - Luego generaremos nuestra semilla con utilizando PTP y generando un una semilla random cada cierto tiempo.
+
+2:22 - Después eh ingresaremos la instrucción SQL para poder ingresar los valores en nuestra base de datos.
+
+2:31 - Eh, como el ID es autoincrementable, entonces lo dejaremos como nulo y se va a ir incrementando poco a poco.
+
+2:39 - Este, los demás los vamos dejando con un signo de interrogación para que vaya tomando los valores que se le dieron arriba. Creamos la un cursor.
+
+2:44 - Este cursor lo que va a hacer es ejecutar la la consulta SQL y mandarla a toda a la base de datos. Generar un commit.
+
+2:51 - Luego nos encargaremos de hacer un URIC con Pay TP para que guarde el nombre.
+
+2:59 - Y en este va a ser crear una URL. En base a esa URL crearemos nuestro QR. Cerramos la conexión y ahora nos vamos a encargar de crear nuestro QR.
+
+3:10 - Este, generamos nuestra clase, eh, h mostrar los errores y debemos de darle este el tamaño que debemos de que queremos y de dónde va en base a qué va a ser nuestro código QR.
+
+3:18 - En este caso va a ser a nuestra URL que creamos anteriormente.
+
+3:27 - Este, ya estos dos son para crear el QR y ya se estaría terminando el código.
+
+Capítulo 2: Explicación de iniciosesion.py
+3:33 - Explicar acerca del código del inicio de sesión este de nuestro autenticador.
+
+3:37 - Este, primero comenzamos con las importaciones. En este caso, ARG Parce nos sirve para recibir la ruta de la base de datos desde la terminal.
+
+3:45 - SQL Lite es para conectar la base de datos SQL y poder consultar la semilla. Big Crypt para almacenar y proteger contraseñas.
+
+3:53 - P OTP es para generar y verificar códigos de tipo TTP. PAT es para manejar rutas de archivos de forma segura y pues portable y Getpass nos ayuda para pedir el código sin mostrarlo en pantalla mientras es escrito.
+
+4:04 - Después pasamos a la configuración de argumentos. En este caso solamente sirven para cuando se ejecuta un help y nos puedan este se nos pueda arrojar cierto tipo de mensajes.
+
+4:17 - Pasamos posteriormente a la función principal de este código. Aquí nos solicita el nombre del usuario, contraseña para posteriormente solicitarnos el código de autenticación.
+
+4:24 - En este caso, como comentaba anteriormente, Get Pass nos ayuda a que mientras el código es escrito, no se muestre en pantalla y así nadie pues pueda visualizar que se está escribiendo.
+
+4:32 - Y pues punto strip nos ayuda justamente a borrar esos espacios en blanco por si el usuario se equivoca y este escribe mal algo.
+
+4:39 - Posteriormente pasamos a a esta parte de aquí, a ruta. Resulp.
+
+4:46 - En este caso este lo que hace es convertir este la ruta en absoluta para posteriormente pasarla a texto para que la pueda leer SQL.
+
+4:53 - Después se ejecuta la consulta para poder este traer la semilla del usuario con ese nombre.
+
+5:03 - Posteriormente se ejecuta este Fed Shong, que en este caso es devuelve una tupla con la primera fila encontrada.
+
+5:09 - Por ejemplo, ya sea que arroje este un código, por ejemplo, no sé, JW3D o arroje un esto pues si no hay este coincidencias para posteriormente pues cerrar la conexión.
+
+5:18 - Aquí lo que hace es validar la existencia del usuario. Este, en este caso, pues si se rechaza, pues este no no lo deja entrar.
+
+5:26 - Este aquí pues poniendo un este un mensaje genérico para no dar a entender qué fue lo que falló, si el nombre de usuario o el código.
+
+5:35 - Posteriormente se recupera el hash o sea la contraseña encriptada como la semilla.
+
+5:42 - Después tiene un proceso de doble verificación, o sea, primero comprueba que la contraseña ingresada coincida con el hash almacenado en la base de datos eh usando bypt. check PW para posteriormente con este P OTP este generar un objeto verificador.
+
+5:57 - y ya posteriormente con totp.verify verify, este calcula el código esperado y lo compara con el que escribió el usuario.
+
+6:08 - Aquí dándole cierta tolerancia por si hay latencia, ya que si eh si este si es instantáneo y el usuario tiene un poco de latencia, aunque escriba bien las credenciales, se lo va a este arrojar como incorrecto.
+
+6:20 - Ya posteriormente pasamos a la sección de código principal, que en este caso primero lo que hace es este hacer una verificación de de lo que se escribió en la terminal.
+
+6:28 - Este, luego se verifica que el archivo de base de datos exista antes de tan solo a este antes de tan solo abrirlo.
+
+6:35 - Posteriormente pasamos a al ciclo este digamos que if principal que es para la ejecución.
+
+6:43 - Aquí dando tres intentos, ya que por ejemplo si entra a esta parte de aquí y arroja este el true de esta parte de acá, se cierra ciclo y pues lo deja entrar al usuario sin ningún problema.
+
+6:51 - Pero por ejemplo, si retorna el false, este, se va a restar uno a la cantidad de intentos.
+
+6:59 - Aquí va a arrojar un mensaje en el que te diga qué cantidad de intentos aún te quedan.
+
+7:05 - Este, y posteriormente se va a volver a intentar. Si igual se intenta y ahora sí se logra y retorna un este un true, normal, te deja entrar sin ningún problema.
+
+7:13 - Pero si retorna otro false, se va a volver a restar uno a la cantidad de intentos. va a mostrar la cantidad de intentos y si ya se hace una tercera vez y se falla en este caso pues ya para que los intentos queden en cero va a mostrar un este un mensaje que diga demasiados intentos fallidos.
+
+7:28 - se va a cerrar el ciclo y va a arrojar un mensaje que diga no se encontró la base de datos.
+
+Capítulo 3: Resultados
+7:33 - En esta primera parte se va a realizar el alda de un usuario al sistema. Para ello, ejecutamos nuestro archivo registrar usuario.p indicando la ruta de la base de datos que vamos a utilizar.
+
+7:43 - Al dar enter podemos observar terminar que el programa encuentra la base de datos y lo primero que nos pide es ingresar al número de empleado.
+
+7:49 - Ingresamos el número ocho, damos enter y después el nombre del usuario, en este caso Alexis Hernández. Daremos enter.
+
+7:56 - Por último, el sistema nos solicitará una contraseña. Una vez una vez ingresada esta contraseña, se nos generará un código QR.
+
+8:06 - Para el siguiente paso debemos descargar una aplicación directamente desde la Play Store conocida como AX. Y dentro de esta aplicación escanearemos el QR generado.
+
+8:14 - En esta app es la la cual nos va a permitir registrar la cuenta y generar los códigos temporales de autenticación. Una vez escaneado el QR, podemos consultar enig el valor de la semilla que se utilizó para configurar el mecanismo de autenticación.
+
+8:30 - Esta semilla la clave secreta que permite a la aplicación generar los códigos de verificación correspondientes.
+
+8:37 - Una vez registrado el usuario y configurado la aplicación Aegis, vamos a probar el inicio de sesión. Para ello, ejecutaremos el archivo inicio de sesión.pine y proporcionaremos la ruta de la base de datos.
+
+8:49 - Damos enter, el sistema nos solicitará el nombre de usuario.
+
+8:53 - Después nos pedirá ingresar la contraseña y posteriormente el código de autenticación.
+
+9:00 - En en este primer intento ingresaremos el código 489907, que es el código temporal que teníamos disponible en este momento.
+
+9:07 - Como se puede observar, la terminal del sistema valida las credenciales y muestra el mensaje de bienvenido Alexis Hernández, lo cual significa que el usuario y el código de autenticación fueron aceptados correctamente.
+
+9:22 - Algo a destacar es que el sistema utiliza un mecanismo de autenticación basado en tiempo conocido como top.
+
+9:29 - Esto significa que los códigos se generan aparte de una semilla secreta y del tiempo actual, por lo que cambian aproximadamente en cada minuto.
+
+9:38 - Y para comprobar esto, volveremos a ejecutar el programa de inicio de sesión e ingresamos el mismo usuario, Alexis Hernández.
+
+9:48 - Posteriormente ingresamos la contraseña y con el sistema solicita el código de autenticación introducimos nuevamente el código anterior, el cual era 489907.
+
+9:55 - Sin embargo, como ya corre el periodo de validez del código, el sistema nos muestra mensaje de usuario o código incorrecto.
+
+10:03 - Además, la terminal nos indica que quedan dos intentos disponibles, lo cual permite observar que también existe un límite de intentos para ingresar correctamente el código.
+
+10:13 - Así que como el código anterior ya caducó, volvemos a nuestra aplicación de Aegis y ahí es donde notamos que nos generó un nuevo código utilizado la misma semilla. En este caso el nuevo código es 9661.
+
+10:24 - Lo introducimos en la terminal para realizar nuevamente la autenticación y como podemos observar, el sistema acepta el código actualizado y nos muestra el mensaje de bienvenida. Bienvenido, usuario Alexis Hernández.
