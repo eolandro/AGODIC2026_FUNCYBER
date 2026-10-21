@@ -1,0 +1,9 @@
+[[zones]]
+host = 'santobecerro.corral'
+type = 'A'
+answer = '192.168.1.5'
+
+[[zones]]
+host = 'santavaca.corral'
+type = 'A'
+answer = '192.168.1.3'

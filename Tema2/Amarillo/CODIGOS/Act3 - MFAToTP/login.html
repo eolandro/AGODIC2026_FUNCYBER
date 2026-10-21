@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartWorkers - Inicio de sesión</title>
+<style>
+:root{--ink:#101c3a;--paper:#e9eef5;--blue:#1f4bff;--ok:#0f8a5f;--err:#c2342b;--mute:#5b6784;--line:#cfd7e6}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper);color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+.app{display:grid;grid-template-columns:1.1fr 1fr;width:min(880px,100%);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(16,28,58,.18)}
+.reloj{background:var(--ink);color:#fff;padding:48px 40px;display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.marca{font-size:1.1rem;font-weight:600}
+#hora{font-size:clamp(3rem,9vw,4.75rem);font-weight:300;font-variant-numeric:tabular-nums;line-height:1}
+#fecha{margin-top:12px;color:#aebbe0}
+#fecha::first-letter{text-transform:uppercase}
+.nota{margin:0;color:#aebbe0;font-size:.95rem;max-width:30ch;line-height:1.5}
+.panel{background:#fff;padding:48px 40px}
+h1{font-size:1.6rem;margin:0 0 12px}
+label{display:block;font-weight:600;font-size:.92rem;margin:18px 0 6px}
+input:not([type=checkbox]){width:100%;padding:12px 14px;font:inherit;border:1.5px solid var(--line);border-radius:10px;color:var(--ink)}
+input:focus-visible,button:focus-visible{outline:3px solid rgba(31,75,255,.35);border-color:var(--blue)}
+.ayuda{font-size:.82rem;color:var(--mute);margin-top:6px}
+.check{display:flex;align-items:center;gap:10px;margin:20px 0 0;font-weight:400;cursor:pointer}
+.check input{width:18px;height:18px;margin:0;accent-color:var(--blue)}
+button{width:100%;margin-top:26px;padding:13px;font:inherit;font-weight:600;color:#fff;background:var(--blue);border:0;border-radius:10px;cursor:pointer}
+button:disabled{opacity:.55;cursor:not-allowed}
+#msg{min-height:1.4em;margin-top:16px;color:var(--err);font-size:.92rem}
+.sacudir{animation:sacudir .35s}
+@keyframes sacudir{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.exito{text-align:center;padding-top:8px}
+.exito svg{width:84px;height:84px}
+.exito circle,.exito path{fill:none;stroke:var(--ok);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.exito circle{stroke-dasharray:252;stroke-dashoffset:252;animation:trazo .6s forwards}
+.exito path{stroke-dasharray:50;stroke-dashoffset:50;animation:trazo .4s .5s forwards}
+@keyframes trazo{to{stroke-dashoffset:0}}
+.exito h2{margin:18px 0 10px;font-size:1.5rem}
+.exito p{margin:4px 0;color:var(--mute)}
+#nombre{color:var(--ink);font-weight:600;font-size:1.15rem}
+[hidden]{display:none!important}
+@media(max-width:720px){.app{grid-template-columns:1fr}.reloj,.panel{padding:32px 24px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<main class="app">
+  <section class="reloj">
+    <div class="marca">SmartWorkers</div>
+    <div><div id="hora">--:--:--</div><div id="fecha"></div></div>
+    <p class="nota">Tu asistencia se registra con la fecha y hora de tu inicio de sesión.</p>
+  </section>
+  <section class="panel">
+    <form id="form" autocomplete="off">
+      <h1>Iniciar sesión</h1>
+      <label for="noEmpleado">Número de empleado</label>
+      <input id="noEmpleado" required autofocus>
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" required autocomplete="current-password">
+      <label class="check"><input type="checkbox" id="dosPasos"> Usar verificación en dos pasos (opcional)</label>
+      <div id="bloqueCodigo" hidden>
+        <label for="codigo">Código de autenticación</label>
+        <input id="codigo" inputmode="numeric" maxlength="7" autocomplete="one-time-code">
+        <div class="ayuda">6 dígitos que muestra tu app de autenticación.</div>
+      </div>
+      <button id="entrar">Iniciar sesión</button>
+      <div id="msg" role="alert"></div>
+    </form>
+    <div id="exito" class="exito" hidden>
+      <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="40"/><path d="M26 43l11 11 21-23"/></svg>
+      <h2>Sesión iniciada</h2>
+      <p id="nombre"></p>
+      <p id="registro"></p>
+      <p id="metodo"></p>
+      <button id="otra">Nuevo inicio de sesión</button>
+    </div>
+  </section>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+
+function actualizarCodigo(){
+  const on = $('dosPasos').checked;
+  $('bloqueCodigo').hidden = !on;
+  $('codigo').required = on;
+  if (!on) $('codigo').value = '';
+  else $('codigo').focus();
+}
+$('dosPasos').addEventListener('change', actualizarCodigo);
+
+function tick(){
+  const d = new Date();
+  $('hora').textContent = d.toLocaleTimeString('es-MX', {hour12:false});
+  $('fecha').textContent = d.toLocaleDateString('es-MX', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+}
+tick(); setInterval(tick, 1000);
+
+let cuenta;
+function bloquear(seg){
+  clearInterval(cuenta);
+  $('entrar').disabled = true;
+  cuenta = setInterval(() => {
+    seg--;
+    if (seg <= 0){ clearInterval(cuenta); $('entrar').disabled = false; $('msg').textContent = ''; return; }
+    $('msg').textContent = `Demasiados intentos. Espera ${seg} s.`;
+  }, 1000);
+}
+
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  $('msg').textContent = '';
+  $('entrar').disabled = true;
+  try {
+    const r = await fetch('/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({noEmpleado: $('noEmpleado').value, password: $('password').value, codigo: $('codigo').value, dosPasos: $('dosPasos').checked})
+    });
+    const d = await r.json();
+    if (d.ok){
+      $('nombre').textContent = 'Bienvenid@, ' + d.nombre;
+      $('registro').textContent = 'Asistencia registrada: ' + d.fechaHora;
+      $('metodo').textContent = d.dosPasos ? 'Entraste con verificación en dos pasos.' : 'Entraste solo con contraseña.';
+      $('form').reset(); actualizarCodigo();
+      $('form').hidden = true;
+      $('exito').hidden = false;
+      $('entrar').disabled = false;
+      return;
+    }
+    $('msg').textContent = d.mensaje + (d.restantes ? ` Intentos restantes: ${d.restantes}.` : '');
+    $('password').value = ''; $('codigo').value = '';
+    $('form').classList.add('sacudir');
+    $('form').addEventListener('animationend', () => $('form').classList.remove('sacudir'), {once:true});
+    if (d.espera) bloquear(d.espera); else { $('entrar').disabled = false; $('password').focus(); }
+  } catch {
+    $('msg').textContent = 'No se pudo conectar con el servidor.';
+    $('entrar').disabled = false;
+  }
+});
+
+$('otra').addEventListener('click', () => {
+  $('exito').hidden = true;
+  $('form').hidden = false;
+  $('noEmpleado').focus();
+});
+</script>
+</body>
+</html>
