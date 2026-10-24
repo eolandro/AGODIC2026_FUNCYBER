@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ladrillo1 | Hola Mundo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #111018;
+            color: #78246a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #30283d;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #a016c3;
+        }
+
+        .estado {
+            font-size: 13px;
+            color: #b9b2c6;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .contenido {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .subtitulo {
+            font-size: 14px;
+            letter-spacing: 4px;
+            color: #bda6d9;
+            margin-bottom: 35px;
+            text-transform: uppercase;
+        }
+
+        /* MARQUEE CENTRAL */
+
+        .marquee {
+            width: 100%;
+            overflow: hidden;
+            border-top: 2px solid #b78acb;
+            border-bottom: 2px solid #b78acb;
+            background: #21192e;
+            padding: 45px 0;
+            border-radius: 12px;
+        }
+
+        .marquee-texto {
+            display: block;
+            white-space: nowrap;
+            width: max-content;
+            font-size: clamp(48px, 9vw, 100px);
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: #405d9f;
+            animation: mover 9s linear infinite;
+        }
+
+        @keyframes mover {
+            from {
+                transform: translateX(100vw);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .descripcion {
+            margin-top: 35px;
+            color: #a9a1b6;
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            font-size: 13px;
+            color: #898197;
+            border-top: 1px solid #30283d;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .marquee-texto {
+                animation: none;
+                width: auto;
+                white-space: normal;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 20px;
+            }
+
+            .marquee {
+                padding: 35px 0;
+            }
+
+            .marquee-texto {
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">LADRILLO1</div>
+        <div class="estado">Servidor python</div>
+    </header>
+
+    <main>
+        <div class="contenido">
+
+            <p class="subtitulo">
+                Bienvenido a mi servidor web
+            </p>
+
+            <div class="marquee">
+                <div class="marquee-texto">
+                    HOLA MUNDO
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
