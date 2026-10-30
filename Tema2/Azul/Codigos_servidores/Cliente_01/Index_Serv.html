@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Hola, Mundo! // Cyberpunk</title>
+<style>
+  :root {
+    --jagger:   #000000; /* fondos profundos */
+    --seance:   #020002; /* sombras y profundidad */
+    --purpura:  #A42DB4; /* elementos estructurales */
+    --sandia:   #eef73f; /* tipografía y neón */
+    --mango:    #f9e24e; /* acentos, bordes y marcos */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--jagger);
+    font-family: "Orbitron", "Rajdhani", "Segoe UI", Arial, sans-serif;
+  }
+
+  /* ---------- Fondo ---------- */
+  body {
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(0, 0, 0, 0.45), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(3, 3, 3, 0.75), transparent 50%),
+      var(--jagger);
+  }
+
+  /* Rejilla tecnológica */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(164, 45, 180, 0.28) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(164, 45, 180, 0.28) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at center, #000 30%, transparent 85%);
+    -webkit-mask-image: radial-gradient(circle at center, #000 30%, transparent 85%);
+    pointer-events: none;
+  }
+
+  /* Líneas de escaneo */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 92, 138, 0.04) 0,
+      rgba(255, 92, 138, 0.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* ---------- Marco principal ---------- */
+  .frame {
+    --cut: 34px;
+    position: relative;
+    width: min(94vw, 1100px);
+    padding: 3px;
+    background: var(--mango);
+    clip-path: polygon(
+      var(--cut) 0, 100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%, 0 var(--cut)
+    );
+    filter: drop-shadow(0 0 14px var(--mango)) drop-shadow(0 0 34px var(--sandia));
+  }
+
+  .frame-inner {
+    --cut: 32px;
+    position: relative;
+    background: linear-gradient(135deg, var(--jagger) 0%, var(--seance) 140%);
+    clip-path: polygon(
+      var(--cut) 0, 100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%, 0 var(--cut)
+    );
+    padding: 22px 0 18px;
+    overflow: hidden;
+  }
+
+  /* Barra diagonal superior e inferior */
+  .stripes {
+    height: 12px;
+    margin: 0 38px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--mango) 0 10px,
+      var(--jagger) 10px 20px
+    );
+    opacity: 0.9;
+  }
+
+  /* HUD superior */
+  .hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 44px;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--purpura);
+    text-shadow: 0 0 8px var(--purpura);
+  }
+  .hud b { color: var(--mango); font-weight: 700; text-shadow: 0 0 8px var(--mango); }
+
+  .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    margin-right: 8px;
+    background: var(--sandia);
+    box-shadow: 0 0 8px var(--sandia), 0 0 16px var(--sandia);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes pulse { 50% { opacity: 0.25; } }
+
+  /* ---------- Cinta de datos (marquesina) ---------- */
+  .ribbon {
+    position: relative;
+    margin: 10px 0;
+    padding: 26px 0;
+    overflow: hidden;
+    background:
+      linear-gradient(90deg, rgba(58, 10, 77, 0.95), rgba(113, 29, 154, 0.55), rgba(58, 10, 77, 0.95));
+    border-top: 2px solid var(--purpura);
+    border-bottom: 2px solid var(--purpura);
+    box-shadow:
+      inset 0 0 28px rgba(113, 29, 154, 0.9),
+      0 0 18px rgba(164, 45, 180, 0.6);
+  }
+  /* Desvanecido en los extremos */
+  .ribbon::before,
+  .ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 90px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ribbon::before { left: 0;  background: linear-gradient(90deg, var(--jagger), transparent); }
+  .ribbon::after  { right: 0; background: linear-gradient(-90deg, var(--jagger), transparent); }
+
+  .track {
+    display: flex;
+    width: max-content;
+    animation: flow 16s linear infinite;
+  }
+  .group { display: flex; align-items: center; flex-shrink: 0; }
+
+  .item {
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    color: var(--sandia);
+    text-shadow:
+      0 0 6px var(--sandia),
+      0 0 18px var(--sandia),
+      0 0 40px var(--mango),
+      3px 3px 0 var(--seance);
+  }
+  .sep {
+    margin: 0 clamp(18px, 3vw, 44px);
+    font-size: clamp(1.2rem, 3vw, 2.2rem);
+    color: var(--mango);
+    text-shadow: 0 0 8px var(--mango), 0 0 20px var(--mango);
+  }
+
+  @keyframes flow {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ---------- Subtítulo / marca de agua ---------- */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px 44px 14px;
+  }
+  .watermark {
+    font-family: "Noto Sans JP", "Yu Gothic", "Hiragino Sans", "Meiryo", sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5em;
+    color: var(--mango);
+    text-shadow: 0 0 8px var(--mango), 0 0 18px var(--mango);
+    border-left: 3px solid var(--sandia);
+    padding-left: 12px;
+  }
+  .serial {
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    color: var(--purpura);
+    text-shadow: 0 0 8px var(--purpura);
+    text-align: right;
+  }
+
+  /* ---------- Esquinas tecnológicas (corners) ---------- */
+  .corner {
+    position: absolute;
+    width: 30px; height: 30px;
+    border: 3px solid var(--mango);
+    filter: drop-shadow(0 0 6px var(--mango));
+    z-index: 5;
+  }
+  .corner.tr { top: 14px;    right: 14px;  border-left: 0;  border-bottom: 0; }
+  .corner.bl { bottom: 14px; left: 14px;   border-right: 0; border-top: 0; }
+  .corner.br { bottom: 14px; right: 44px;  border-left: 0;  border-top: 0; display: none; }
+
+  /* Línea diagonal decorativa */
+  .slash {
+    position: absolute;
+    top: 0; right: 120px;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--purpura), transparent);
+    transform: skewX(-30deg);
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .track { animation-duration: 60s; }
+    .dot { animation: none; }
+  }
+
+  @media (max-width: 560px) {
+    .hud { padding: 12px 26px; letter-spacing: 0.2em; }
+    .footer { padding: 10px 26px 12px; }
+    .stripes { margin: 0 26px; }
+    .serial { display: none; }
+  }
+</style>
+</head>
+<body>
+
+  <main class="frame">
+    <div class="frame-inner">
+      <span class="corner tr"></span>
+      <span class="corner bl"></span>
+      <span class="slash"></span>
+
+      <div class="stripes"></div>
+
+      <div class="hud">
+        <span><span class="dot"></span>Enlace <b>activo</b></span>
+        <span>Flujo de datos // 01</span>
+      </div>
+
+      <!-- Cinta en bucle: dos grupos idénticos para un ciclo continuo sin saltos -->
+      <div class="ribbon" aria-label="¡Hola, Mundo!">
+        <div class="track" aria-hidden="true">
+          <div class="group">
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+          </div>
+          <div class="group">
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+            <span class="item">¡Hola, Mundo!</span><span class="sep">◆</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="watermark">レベッカ</div>
+        <div class="serial">SYS//HM-2077<br>TRANSMISIÓN ESTABLE</div>
+      </div>
+
+      <div class="stripes"></div>
+    </div>
+  </main>
+
+</body>
+</html>
